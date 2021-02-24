@@ -4,6 +4,9 @@
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+  config.neo4j.driver.url = 'bolt://localhost:7094'
+  config.neo4j.driver.auth_token = Neo4j::Driver::AuthTokens.basic('neo4j', 'password')
+  config.neo4j.driver.encryption = false
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = false

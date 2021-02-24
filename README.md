@@ -1,24 +1,9 @@
-# README
+# Everlywell backend Challenge
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Setup
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. > bundle install
+2. Install neo4j `rake neo4j:install[community-4.0.6]`
+3. Set password `db/neo4j/development/bin/neo4j-admin set-initial-password password`
+2. Initialize neo4j server `rake neo4j:start`
+3. > rails s
