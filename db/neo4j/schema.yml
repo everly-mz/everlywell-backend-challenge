@@ -14,7 +14,9 @@
 :constraints:
 - CONSTRAINT ON ( `activegraph::migrations::schemamigration`:`ActiveGraph::Migrations::SchemaMigration`
   ) ASSERT (`activegraph::migrations::schemamigration`.migration_id) IS UNIQUE
+- CONSTRAINT ON ( headline:Headline ) ASSERT (headline.uuid) IS UNIQUE
 - CONSTRAINT ON ( member:Member ) ASSERT (member.uuid) IS UNIQUE
 :indexes: []
 :versions:
 - '20210224155944'
+- '20210224172753'
