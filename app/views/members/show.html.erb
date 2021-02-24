@@ -17,5 +17,24 @@
 
 <p>Friends <%= @member.friends.count %></p>
 
+<h2>Headlines</h2>
+<table>
+  <% @member.headlines.each do |h| %>
+    <tr>
+      <td><%= h.heading %></td>
+    </tr>
+  <% end %>
+</table>
+
+<h2>Friends</h2>
+<table>
+  <% @member.friends.each do |f| %>
+    <tr>
+      <td><%= f.name %></td>
+      <td><%= link_to 'Show', f %></td>
+    </tr>
+  <% end %>
+</table>
+
 <%= link_to 'Edit', edit_member_path(@member) %> |
 <%= link_to 'Back', members_path %>
