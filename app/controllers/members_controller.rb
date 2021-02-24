@@ -25,6 +25,8 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
+        Headline.build_headers(@member)
+
         format.html { redirect_to @member, notice: "Member was successfully created." }
         format.json { render :show, status: :created, location: @member }
       else

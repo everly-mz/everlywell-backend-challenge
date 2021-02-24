@@ -54,3 +54,5 @@ gem 'neo4j-ruby-driver', '~> 1.7.0'
 group :development do
   gem 'neo4j-rake_tasks'
 end
+
+gem 'nokogiri'
