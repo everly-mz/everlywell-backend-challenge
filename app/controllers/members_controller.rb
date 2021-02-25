@@ -25,8 +25,6 @@ class MembersController < ApplicationController
 
     respond_to do |format|
       if @member.save
-        UrlHeaderTagCrawlerWorker.perform_async(@member.id)
-
         format.html { redirect_to @member, notice: "Member was successfully created." }
         format.json { render :show, status: :created, location: @member }
       else

@@ -13,7 +13,13 @@ class Member
   validates :url, presence: true
 
   before_save() {
+    # Create short urls
     self.short_url = Digest::SHA1.hexdigest(url)[8..16]
+  }
+
+  after_save() {
+    # Parse through the member url and retrieve header tag content
+    UrlHeaderTagCrawlerWorker.perform_async(self.id)
   }
 
   def all_except_self
