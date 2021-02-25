@@ -7,12 +7,12 @@
 
 <p>
   <strong>Url:</strong>
-  <%= @member.url %>
+  <a href=<%= @member.url %> target="_blank"><%= @member.url %></a>
 </p>
 
 <p>
   <strong>Short url:</strong>
-  <%= @member.short_url %>
+  <a href=<%= decorate_short_url(@member) %> target="_blank"><%= decorate_short_url(@member) %></a>
 </p>
 
 <p>Friends <%= @member.friends.count %></p>

@@ -1,4 +1,6 @@
-class Member 
+require 'digest'
+
+class Member
   include ActiveGraph::Node
   property :name, type: String
   property :url, type: String
@@ -11,4 +13,8 @@ class Member
 
   validates :name, presence: true
   validates :url, presence: true
+
+  before_save() {
+    self.short_url = Digest::SHA1.hexdigest(url)[8..16]
+  }
 end
