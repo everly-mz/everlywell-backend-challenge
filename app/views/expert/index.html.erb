@@ -2,7 +2,7 @@
 
 <p>
 <%= form_tag expert_path, method: :get do %>
-  <%= select_tag :member_id, options_for_select(Member.all.map {|m| [m.name, m.id]}), :selected => @member %>
+  <%= select_tag :member_id, options_for_select(Member.all.map {|m| [m.name, m.id]}, params[:member_id]) %>
   <%= text_field_tag :query, nil, :required => true %>
   <%= submit_tag("Search!") %>
 <% end %>
