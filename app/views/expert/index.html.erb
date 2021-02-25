@@ -1,0 +1,24 @@
+<h1>Expert Search</h1>
+
+<p>
+<%= form_tag expert_path, method: :get do %>
+  <%= select_tag :member_id, options_for_select(Member.all.map {|m| [m.name, m.id]}), :selected => @member %>
+  <%= text_field_tag :query, nil, :required => true %>
+  <%= submit_tag("Search!") %>
+<% end %>
+</p>
+
+<p>
+  <table>
+    <tr>
+      <th>Name</td>
+      <th>Show</td>
+    </tr>
+    <% @result.each do |r| %>
+      <tr>
+        <td><%= r.name %></td>
+        <td><%= link_to 'Show', r %></td>
+      </tr>
+    <% end %>
+  </table>
+</p>
