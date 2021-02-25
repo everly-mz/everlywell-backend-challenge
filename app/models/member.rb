@@ -17,4 +17,8 @@ class Member
   before_save() {
     self.short_url = Digest::SHA1.hexdigest(url)[8..16]
   }
+
+  def all_except_self
+    members = Member.all.reject{|m| m == self }
+  end
 end

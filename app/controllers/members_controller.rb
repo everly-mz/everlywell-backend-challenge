@@ -40,6 +40,15 @@ class MembersController < ApplicationController
   def update
     respond_to do |format|
       if @member.update(member_params)
+
+        unless member_params['follow_member_id'].nil?
+          follow_member = Member.find_by(id: member_params['follow_member_id'])
+
+          if @member.friends.where(id: follow_member.id).empty?
+            @member.friends << follow_member
+          end
+        end
+
         format.html { redirect_to @member, notice: "Member was successfully updated." }
         format.json { render :show, status: :ok, location: @member }
       else
@@ -58,6 +67,10 @@ class MembersController < ApplicationController
     end
   end
 
+  def unfriend
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_member
@@ -66,6 +79,6 @@ class MembersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def member_params
-      params.require(:member).permit(:name, :url, :short_url)
+      params.require(:member).permit(:name, :url, :short_url, :follow_member_id)
     end
 end
