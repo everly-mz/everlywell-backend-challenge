@@ -11,8 +11,10 @@
 7. Initialize neo4j server `rake neo4j:start`
 8. Start redis server `redis-server`
 9. Start sidekiq `bundle exce sidekiq`
-10. > rails s
-11. Go to [localhost](http://localhost:3000)
+10. Run migrations `rake neo4j:migrate`
+11. Run seeds `rake db:seed`
+12. > rails s
+13. Go to [localhost](http://localhost:3000)
 
 ## Explanation
 
